@@ -19,9 +19,6 @@ remote_password = "Rathi123"
 
 inst_list = ["JINDALSTEL", "LICHSGFIN", "ABB", "UNITDSPR", "RAMCOCEM", "LTTS", "BANKBARODA", "COROMANDEL", "GUJGASLTD", "OBEROIRLTY", "TITAN", "NMDC", "PEL", "SBILIFE", "AARTIIND", "BAJAJFINSV", "TATASTEEL", "DALBHARAT", "PFC", "HAL", "GLENMARK", "COALINDIA", "MUTHOOTFIN", "TCS", "DRREDDY", "LT", "IPCALAB", "SUNPHARMA", "BALKRISIND", "ICICIPRULI", "HCLTECH", "LTIM", "DEEPAKNTR", "CHOLAFIN", "GAIL", "VOLTAS", "ULTRACEMCO", "CHAMBLFERT", "APOLLOHOSP", "INDUSTOWER", "RBLBANK", "HINDUNILVR", "MCX", "VEDL", "BHARTIARTL", "GNFC", "ITC", "CROMPTON", "BANDHANBNK", "POWERGRID", "CANFINHOME", "HAVELLS", "HINDPETRO", "M&M", "ADANIENT", "POLYCAB", "SAIL", "BHARATFORG", "DIVISLAB", "IEX", "MPHASIS", "SHRIRAMFIN", "SIEMENS", "BRITANNIA", "TATAMOTORS", "MOTHERSON", "SBICARD", "ABCAPITAL", "BAJFINANCE", "MRF", "DIXON", "IDFCFIRSTB", "INDIAMART", "TATACHEM", "LTF", "CUB", "IOC", "BOSCHLTD", "ZYDUSLIFE", "SYNGENE", "PNB", "ATUL", "AUBANK", "RELIANCE", "PIIND", "LALPATHLAB", "FINNIFTY", "ABFRL", "MIDCPNIFTY", "TATACONSUM", "IGL", "NATIONALUM", "MARUTI", "SUNTV", "ALKEM", "IDFC", "HDFCLIFE", "GRANULES", "NESTLEIND", "MANAPPURAM", "ADANIPORTS", "ACC", "ASIANPAINT", "COFORGE", "ESCORTS", "BPCL", "WIPRO", "NIFTY", "ASHOKLEY", "BHEL", "COLPAL", "NAVINFLUOR", "TATAPOWER", "EXIDEIND", "BALRAMCHIN", "CIPLA", "ASTRAL", "LUPIN", "PIDILITIND", "AXISBANK", "SRF", "INDHOTEL", "ABBOTINDIA", "TECHM", "GRASIM", "ICICIBANK", "JSWSTEEL", "AUROPHARMA", "BATAINDIA", "INDIGO", "HDFCBANK", "APOLLOTYRE", "TRENT", "FEDERALBNK", "GODREJPROP", "HINDCOPPER", "TVSMOTOR", "AMBUJACEM", "CONCOR", "BSOFT", "TORNTPHARM", "EICHERMOT", "DABUR", "HINDALCO", "MARICO", "SHREECEM", "NIFTYNXT50", "INFY", "BANKNIFTY", "IDEA", "BERGEPAINT", "DLF", "BEL", "IRCTC", "NTPC", "LAURUSLABS", "METROPOLIS", "CANBK", "OFSS", "MGL", "KOTAKBANK", "HEROMOTOCO", "M&MFIN", "ICICIGI", "NAUKRI", "PAGEIND", "TATACOMM", "PVRINOX", "ONGC", "JUBLFOOD", "SBIN", "BIOCON", "RECLTD", "JKCEMENT", "PETRONET", "UPL", "GMRINFRA", "CUMMINSIND", "BAJAJ-AUTO", "MFSL", "INDUSINDBK", "GODREJCP", "HDFCAMC", "UBL", "PERSISTENT", "INDIACEM", "ZEEL", "MCDOWELL-N"]
 
-# if 'INDIACEM' in inst_list:
-#     print(True)
-
 def chk_remote_db():
     try:
         remote_engine = create_engine(f'postgresql+psycopg2://{remote_user}:{remote_password}@{remote_host}:5432/{remote_dbname}')
@@ -81,13 +78,11 @@ def download_bhavcopy(download_date, use :str = 'fo'):
     folder_name = f'{use_filename}{for_date}_F_0000'
     bhav_file_name = f'{use_filename}{for_date}_F_0000.csv'
     file_path = os.path.join(data_dir, folder_name)
-
     headers = {
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36',
         'accept-encoding': 'gzip, deflate, br',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8'
     }
-
     response_data = requests.get(bhav_url, headers=headers)
     zip_data = io.BytesIO(response_data.content)
     with zipfile.ZipFile(zip_data, 'r') as zip_file:
