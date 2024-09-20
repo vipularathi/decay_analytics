@@ -4,8 +4,10 @@ import pandas as pd
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
 data_dir = os.path.join(root_dir, f'data/')
+pickle_dir = os.path.join(data_dir, 'straddle_pickle_files/')
 logs_dir = os.path.join(root_dir,'logs/')
-dir_list = [data_dir, logs_dir]
+table_dir = os.path.join(data_dir, 'tables/')
+dir_list = [data_dir, logs_dir, pickle_dir, table_dir]
 status = [os.makedirs(_dir, exist_ok=True) for _dir in dir_list if not os.path.exists(_dir)]
 
 holidays_24 = ['2024-01-22', '2024-01-26', '2024-03-08', '2024-03-25', '2024-03-29', '2024-04-11', '2024-04-17', '2024-05-01', '2024-06-17', '2024-07-17', '2024-08-15', '2024-10-02', '2024-11-01', '2024-11-15', '2024-12-25']
