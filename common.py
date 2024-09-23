@@ -7,6 +7,7 @@ data_dir = os.path.join(root_dir, f'data/')
 pickle_dir = os.path.join(data_dir, 'straddle_pickle_files/')
 logs_dir = os.path.join(root_dir,'logs/')
 table_dir = os.path.join(data_dir, 'tables/')
+data_path = "D:\For_EoD_RJ\data"
 dir_list = [data_dir, logs_dir, pickle_dir, table_dir]
 status = [os.makedirs(_dir, exist_ok=True) for _dir in dir_list if not os.path.exists(_dir)]
 
