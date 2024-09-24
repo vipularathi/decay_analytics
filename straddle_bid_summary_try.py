@@ -6,7 +6,7 @@ from datetime import datetime
 import time
 # import matplotlib.pyplot as plt
 import numpy as np
-from common import pickle_dir, table_dir, data_path, b_days
+from common import data_path, b_days
 
 # l = os.listdir(pickle_dir)
 # print(l)
