@@ -22,7 +22,7 @@ b_days = pd.bdate_range(start=pd.to_datetime('2024-05-23'), end=pd.to_datetime(d
 # print(b_days[0],'\n', type(b_days[0]),'\n', type(b_days))
 # print(b_days)
 # today, yesterday = b_days[-1], b_days[-2]
-yesterday = pd.Timestamp(year=2024, month=8, day=7)
+# yesterday = pd.Timestamp(year=2024, month=8, day=7)
 # print(os.listdir())
 # for _fol in os.listdir():
 #     if os.
