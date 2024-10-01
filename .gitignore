@@ -4,4 +4,4 @@ data
 __pycache__
 *.csv
 test.py
-*.ipynb
+.idea
