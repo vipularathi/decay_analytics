@@ -172,7 +172,7 @@ def plot_graph(use_date, strd_name):
     # # Connect the format_tooltip function to the mouse motion event
     # fig.canvas.mpl_connect('motion_notify_event', format_tooltip)
     # dfx.set_index('strike', inplace=True)
-    df_grouped = dfx.groupby('strike')['decay'].sum().reset_index()
+    df_grouped = dfx.groupby('strike')['decay'].max().reset_index()
     ax = df_grouped.plot(kind = 'bar', x = 'strike', y = 'decay', legend = True, grid = True)
     ax.set_xlabel('Strike')
     ax.set_ylabel('Decay')
@@ -187,14 +187,16 @@ def plot_graph(use_date, strd_name):
 df_bids, df_cummulative = calc_bid_and_cummulative()
 pd.set_option('display.max_columns', None)
 # pd.set_option("display.max_rows", None)
-strd_name = str(input('Enter straddle_name(BANKNIFTY_CW, BANKNIFTY_NW etc) for which graph needs to be plotted:\t'))
-print(f'your choice for dates - {df_cummulative["date"].unique().tolist()}')
-use_date = str(input('Enter date in format - YYYY-MM-DD\t'))
-# use_date = pd.to_datetime(use_date)
-plot_graph(use_date, strd_name)
+
 
 # function to plot the curve -
 # query the required dates from df_cummulative and plot the time vs decay curve
 
 print(f'df_bids is \n{df_bids}')
 print(f'df_cummulative is \n{df_cummulative}')
+
+strd_name = str(input('Enter straddle_name(BANKNIFTY_CW, BANKNIFTY_NW etc) for which graph needs to be plotted:\t'))
+print(f'your choice for dates - {df_cummulative["date"].unique().tolist()}')
+use_date = str(input('Enter date in format - YYYY-MM-DD\t'))
+# use_date = pd.to_datetime(use_date)
+plot_graph(use_date, strd_name)
