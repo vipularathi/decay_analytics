@@ -3,3 +3,5 @@ logs
 data
 __pycache__
 *.csv
+test.py
+.idea
